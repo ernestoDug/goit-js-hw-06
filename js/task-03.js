@@ -23,11 +23,11 @@ const images = [
 
 // 1 стукаюсь до галерии
 const galery = document.querySelector(".gallery");
-// 2 починаю створювати лішки з начинкою з малюків з відповіднии класами використовую лаццюг методів
+// 2 перебираю масив чтворюю лішки з малюнками з відповіднии класами та атрибутами до имедж використовую лаццюг методів
 const animalsPicture = images
   .map(
     (image) =>
-      `<li class = "animalPackForImage"> <img class="animals" src="${image.url} ${image.alt}"> </li>`
+      `<li class = "animalPackForImage"> <img class="animals" src="${image.url}" alt="${image.alt}"> </li>`
   )
   .join("");
 //3  додаю лішки до  дерева

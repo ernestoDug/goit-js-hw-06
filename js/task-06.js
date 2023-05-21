@@ -18,13 +18,14 @@ validationInput.addEventListener("blur", () => {
   if (
     validationInput.value.length === Number(validationInput2.dataset.length)
   ) {
-    // 4. відаляю клас для ПОМИЛКОВОЇ кількості символів бордер ред
+    // 5. відаляю клас для ПОМИЛКОВОЇ кількості символів бордер ред
     validationInput.classList.remove("invalid");
-    // 5. додаю клас длЯ приавльної кількості символів боредр грин
+    // 6. додаю клас длЯ приавльної кількості символів боредр грин
     validationInput.classList.add("valid");
-  }
-  //    додаю клас для помилкової кількості символів бордер ред
-  else {
+  } else {
+    //   7 видаляю  клас для правильної кількості символів бордер грин !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! НЕ ЗАБУВАТИ
+    validationInput.classList.remove("valid");
+    // 8  додаю клас для помилкової кількості символів бордер ред
     validationInput.classList.add("invalid");
   }
 });

@@ -4,29 +4,35 @@
 // Для генерування випадкового кольору використовуй функцію getRandomHexColor.
 
 // 1. стукаюсь до Бади.
-const bodyInbody = document.querySelector("body");
+const bodyS = document.querySelector("body");
 // 2. стукаюсь до кнопочки
 const buttonIncolor = document.querySelector(".change-color");
 
-// 2/5 стукаюсь до Спану
+// 3 стукаюсь до Спану
 const spanIncolor = document.querySelector(".color");
 
 // 4 пишу функцію фарбника
 
-const changeColorBody = () => {
-  // 5 викликається функція кольрової випадковості  щоб пофарбувати БАді
-  bodyInbody.style.backgroundColor = getRandomHexColor();
-  // 6 спан доносить про колір Баді
-  spanIncolor.textContent = getRandomHexColor();
-  // ****************************************************************************
-  // 7 додав для краси зміную кольру для спану
-  spanIncolor.style.color = getRandomHexColor();
+const newBG = () => {
+  // 5. запишу виклик функцііїї кольрової випадковсті у змінну
+  const newColor = getRandomHexColor();
+  // const rr =  newColor.replace("#", "0x");
+  // 6 додаю атрибут але він не замінює старий  чомусь хекс колір навіть через 0X ЗАМІСТЬ КРАПКИ НЕ ПРАЦЮЄ
+  // замість цьогоо  КОЛІР СТАЄ В rgb... у body.
+  bodyS.setAttribute("backGround-color", newColor);
+  // 7 фарбую баді
+  bodyS.style.backgroundColor = newColor;
+
+  // 8 виводжу колір в спан
+  spanIncolor.textContent = newColor;
+  // 8/2 ЗНАЧІЕННЯ КОЛЬРУ ВИВОДЖУ АЛЕ ВСЕ Ж ТАКИ ЩОСЬ НЕ ТЕ З ФОНОМ
+  console.log(newColor);
 };
 
-// 8. підслуховую кнопопочку
-buttonIncolor.addEventListener("click", changeColorBody);
+// 9 вішаю слухача
+buttonIncolor.addEventListener("click", newBG);
 
-// 9. функція кольрової випадковості від митців Завдання
+// 10 функція випадкової колірності
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)

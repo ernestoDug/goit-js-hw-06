@@ -27,16 +27,16 @@ function sendForm(event) {
   // 6 ставлю умови заповнення полів щоб не було пустих
   // використовую велью бо в елментс властивості форми  зберігаються данні полів форми де є атрибут нейм
 
-  if (email.value === "") {
-    alert("Коливання сили відчуваю на імейл твій чекаю :-)");
-  } else if (password.value === "") {
-    alert("Бачу що пароль не введено тобою...:-)");
+  if (email.value === "" || password.value === "") {
+    alert("Відчуваю, що поле заповнити треба...:-)");
+  } else {
+    // 7. інакше запишу зібрані данні по змінним тут значення пошти
+    const emailValue = event.currentTarget.elements.email.value;
+    // 7/2 тут значення пароля
+    const paswordValue = event.currentTarget.elements.password.value;
+    // 8 виводжу в консоль зібрані дані
+    console.log({ email: `${emailValue}`, password: `${paswordValue}` });
+    //   9 напводжу лад в полях очиючи їх
+    event.currentTarget.reset();
   }
-  // 7. запишу зібрані данні по змінним
-  const emailValue = event.currentTarget.elements.email.value;
-  const paswordValue = event.currentTarget.elements.email.pasword;
-  // 8 виводжу в консоль зібрані дані
-  console.log({ email: `${emailValue}`, password: `${paswordValue}` });
-  //   9 напводжу лад в полях очиючи їх
-  event.currentTarget.reset();
 }
