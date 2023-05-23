@@ -13,19 +13,21 @@ const ingredients = [
 // Додасть елементу клас item.
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
-// 1 стукаюсь до списку
+// - стукаюсь до списку
 const ingridientis = document.querySelector("#ingredients");
-
-// 2 перебираю масив через меп та стрінгую одразу ( вик ланцюг методів)
-const ingredientForli = ingredients
-  .map(
-    (ingredient) =>
-      // 3. додаю відповідний клас та напис до лі
-      `<li class ="item"> ${(ingredients.textContent = ingredient)} </li>`
-  )
-  .join("");
-// 4. додаю створені лі
-ingridientis.insertAdjacentHTML("afterbegin", ingredientForli);
-
-//5 перевіряю чи є такий клас
+// - створюю змінну з масивом:
+const arrayIngridient = [];
+// - перебираю масив  мепom  де одразу створюю лі через createElement
+const ingredientForli = ingredients.map((ingredient) => {
+  const newLi = document.createElement("li");
+  // - додаю напис
+  newLi.textContent = `${(ingredients.textContent = ingredient)}`;
+  // - додаю клас
+  newLi.classList.add("item");
+  // - закидаю у створений  масив перебране з старого
+  arrayIngridient.push(newLi);
+});
+// додаю до дерева розпиленням
+ingridientis.append(...arrayIngridient);
+//- перевіряю чи є такий клас
 console.log(document.querySelector("li").classList.contains("item"));
